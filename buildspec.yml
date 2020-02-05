@@ -9,7 +9,7 @@ phases:
       - aws --version
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
       - REPOSITORY_URI=294250817254.dkr.ecr.us-east-1.amazonaws.com/notification-service
-      - VERSION=$((date +%F+%T) | tr + T)
+      - VERSION=(date +%F+%T) | tr + T
   build:
     commands:
       - echo Building the Docker image...
