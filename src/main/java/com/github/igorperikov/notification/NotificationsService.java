@@ -12,19 +12,15 @@ public class NotificationsService {
         this.notificationRepository = notificationRepository;
     }
 
-    public List<Notification> getAll() {
-        return notificationRepository.getAll();
+    public List<Notification> getAll(String userId) {
+        return notificationRepository.getAll(userId);
     }
 
     public void create(Notification notification) {
         notificationRepository.create(notification);
     }
 
-    public void update(String notificationId, Notification notification) {
-        notificationRepository.update(notificationId, notification);
-    }
-
-    public void delete(String notificationId) {
-        notificationRepository.delete(notificationId);
+    public void delete(String userId, String notificationId) {
+        notificationRepository.delete(userId, notificationId);
     }
 }

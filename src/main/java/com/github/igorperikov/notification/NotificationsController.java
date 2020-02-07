@@ -14,8 +14,8 @@ public class NotificationsController {
     }
 
     @GetMapping
-    public List<Notification> getAll() {
-        return notificationsService.getAll();
+    public List<Notification> getAll(@RequestParam String userId) {
+        return notificationsService.getAll(userId);
     }
 
     @PostMapping
@@ -23,16 +23,8 @@ public class NotificationsController {
         notificationsService.create(notification);
     }
 
-    @PatchMapping("/{notificationId}")
-    public void update(
-            @PathVariable String notificationId,
-            @RequestBody Notification notification
-    ) {
-        notificationsService.update(notificationId, notification);
-    }
-
     @DeleteMapping("/{notificationId}")
-    public void delete(@PathVariable String notificationId) {
-        notificationsService.delete(notificationId);
+    public void delete(@PathVariable String notificationId, @RequestParam String userId) {
+        notificationsService.delete(userId, notificationId);
     }
 }
