@@ -13,9 +13,9 @@ public class Notification {
 
     @JsonCreator
     public Notification(
-            @JsonProperty("userId") String userId,
-            @JsonProperty("text") String text,
-            @JsonProperty("timestamp") long timestamp
+            @JsonProperty(value = "userId", required = true) String userId,
+            @JsonProperty(value = "text", required = true) String text,
+            @JsonProperty(value = "timestamp", required = true) long timestamp
     ) {
         this(UUID.randomUUID().toString(), userId, text, timestamp);
     }
@@ -25,5 +25,15 @@ public class Notification {
         this.userId = userId;
         this.text = text;
         this.timestamp = timestamp;
+    }
+
+    @Override
+    public String toString() {
+        return "Notification{" +
+                "notificationId='" + notificationId + '\'' +
+                ", userId='" + userId + '\'' +
+                ", text='" + text + '\'' +
+                ", timestamp=" + timestamp +
+                '}';
     }
 }
