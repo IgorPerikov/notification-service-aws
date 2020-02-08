@@ -18,6 +18,7 @@
         <swagger.version>2.9.2</swagger.version>
         <swagger-annotations.version>1.5.21</swagger-annotations.version>
         <swagger-models.version>1.5.21</swagger-models.version>
+        <amazon-sdk.version>2.10.58</amazon-sdk.version>
     </properties>
 
     <dependencies>
@@ -40,7 +41,7 @@
         <dependency>
             <groupId>software.amazon.awssdk</groupId>
             <artifactId>dynamodb</artifactId>
-            <version>2.10.58</version>
+            <version>${amazon-sdk.version}</version>
         </dependency>
 
         <dependency>

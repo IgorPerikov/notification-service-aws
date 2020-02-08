@@ -1,8 +1,6 @@
 package com.github.igorperikov.notification.service;
 
 import com.github.igorperikov.notification.domain.Notification;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -10,24 +8,19 @@ import java.util.List;
 
 @Service
 public class Notifier {
-    private static final Logger log = LoggerFactory.getLogger(Notifier.class);
-
     private final NotificationsService notificationsService;
+    private final SmsSenderService smsSenderService;
 
-    public Notifier(NotificationsService notificationsService) {
+    public Notifier(NotificationsService notificationsService, SmsSenderService smsSenderService) {
         this.notificationsService = notificationsService;
+        this.smsSenderService = smsSenderService;
     }
 
     @Scheduled(fixedDelay = 1 * 60 * 1000, initialDelay = 30 * 1000)
     public void pollNotifications() {
         List<Notification> notifications = notificationsService.findSubjectsToNotifyAndDelete();
         for (Notification notification : notifications) {
-            notify(notification);
+            smsSenderService.sendSms(notification.phoneNumber, notification.text);
         }
-    }
-
-    private void notify(Notification notification) {
-        // TODO:
-        log.info("{}", notification);
     }
 }

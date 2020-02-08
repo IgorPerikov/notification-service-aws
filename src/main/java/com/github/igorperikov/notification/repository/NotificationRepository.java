@@ -17,6 +17,7 @@ public class NotificationRepository {
     private static final String USER_ID_COLUMN = "user_id";
     private static final String TIMESTAMP_COLUMN = "notification_timestamp";
     private static final String TEXT_COLUMN = "text";
+    private static final String PHONE_NUMBER_COLUMN = "phone_number";
 
     private final DynamoDbClient dynamoDbClient;
 
@@ -58,6 +59,7 @@ public class NotificationRepository {
                         USER_ID_COLUMN, AttributeValue.builder().s(notification.userId).build(),
                         NOTIFICATION_ID_COLUMN, AttributeValue.builder().s(notification.notificationId).build(),
                         TEXT_COLUMN, AttributeValue.builder().s(notification.text).build(),
+                        PHONE_NUMBER_COLUMN, AttributeValue.builder().s(notification.phoneNumber).build(),
                         TIMESTAMP_COLUMN, AttributeValue.builder().n(String.valueOf(notification.timestamp)).build()
                 ))
                 .build();
@@ -85,7 +87,8 @@ public class NotificationRepository {
                 attributes.get(NOTIFICATION_ID_COLUMN).s(),
                 attributes.get(USER_ID_COLUMN).s(),
                 attributes.get(TEXT_COLUMN).s(),
-                Long.parseLong(attributes.get(TIMESTAMP_COLUMN).n())
+                Long.parseLong(attributes.get(TIMESTAMP_COLUMN).n()),
+                attributes.get(PHONE_NUMBER_COLUMN).s()
         );
     }
 }

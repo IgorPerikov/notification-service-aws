@@ -19,9 +19,11 @@ public class NotificationServiceApplication {
     @EnableSwagger2
     @EnableScheduling
     public static class AppConfiguration {
+        public static final Region REGION = Region.US_EAST_1;
+
         @Bean
         public DynamoDbClient dynamoDbClient() {
-            return DynamoDbClient.builder().region(Region.US_EAST_1).build();
+            return DynamoDbClient.builder().region(REGION).build();
         }
     }
 }
