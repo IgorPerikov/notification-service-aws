@@ -1,5 +1,7 @@
-package com.github.igorperikov.notification;
+package com.github.igorperikov.notification.service;
 
+import com.github.igorperikov.notification.domain.Notification;
+import com.github.igorperikov.notification.repository.NotificationRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;

@@ -1,5 +1,7 @@
-package com.github.igorperikov.notification;
+package com.github.igorperikov.notification.controller;
 
+import com.github.igorperikov.notification.domain.Notification;
+import com.github.igorperikov.notification.service.NotificationsService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -1,5 +1,6 @@
-package com.github.igorperikov.notification;
+package com.github.igorperikov.notification.repository;
 
+import com.github.igorperikov.notification.domain.Notification;
 import org.springframework.stereotype.Repository;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.*;

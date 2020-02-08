@@ -1,4 +1,4 @@
-package com.github.igorperikov.notification;
+package com.github.igorperikov.notification.domain;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
