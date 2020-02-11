@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.cloudwatch.CloudWatchClient;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
@@ -24,6 +25,11 @@ public class NotificationServiceApplication {
         @Bean
         public DynamoDbClient dynamoDbClient() {
             return DynamoDbClient.builder().region(REGION).build();
+        }
+
+        @Bean
+        public CloudWatchClient cloudWatchClient() {
+            return CloudWatchClient.builder().region(REGION).build();
         }
     }
 }

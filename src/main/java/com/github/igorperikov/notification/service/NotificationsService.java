@@ -34,7 +34,7 @@ public class NotificationsService {
     }
 
     public List<Notification> findSubjectsToNotifyAndDelete() {
-        return findSubjectsToNotifyAndDelete(5);
+        return findSubjectsToNotifyAndDelete(20);
     }
 
     public List<Notification> findSubjectsToNotifyAndDelete(int limit) {
